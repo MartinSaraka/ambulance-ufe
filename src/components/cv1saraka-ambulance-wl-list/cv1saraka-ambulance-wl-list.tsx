@@ -20,7 +20,7 @@ export class Cv1sarakaAmbulanceWlList {
           estimatedDurationMinutes: 15,
           condition: 'Kontrola'
       }, {
-          name: 'Bc. August Cézar',
+          name: 'Bc. August Cézara',
           patientId: '10096',
           estimatedStart: new Date(Date.now() + 30 * 60),
           estimatedDurationMinutes: 20,
