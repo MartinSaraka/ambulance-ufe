@@ -6,6 +6,12 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    interface Cv1sarakaAmbulanceWlApp {
+        "basePath": string;
+    }
+    interface Cv1sarakaAmbulanceWlEditor {
+        "entryId": string;
+    }
     interface Cv1sarakaAmbulanceWlList {
     }
     interface MyComponent {
@@ -23,8 +29,50 @@ export namespace Components {
         "middle": string;
     }
 }
+export interface Cv1sarakaAmbulanceWlEditorCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLCv1sarakaAmbulanceWlEditorElement;
+}
+export interface Cv1sarakaAmbulanceWlListCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLCv1sarakaAmbulanceWlListElement;
+}
 declare global {
+    interface HTMLCv1sarakaAmbulanceWlAppElement extends Components.Cv1sarakaAmbulanceWlApp, HTMLStencilElement {
+    }
+    var HTMLCv1sarakaAmbulanceWlAppElement: {
+        prototype: HTMLCv1sarakaAmbulanceWlAppElement;
+        new (): HTMLCv1sarakaAmbulanceWlAppElement;
+    };
+    interface HTMLCv1sarakaAmbulanceWlEditorElementEventMap {
+        "editor-closed": string;
+    }
+    interface HTMLCv1sarakaAmbulanceWlEditorElement extends Components.Cv1sarakaAmbulanceWlEditor, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLCv1sarakaAmbulanceWlEditorElementEventMap>(type: K, listener: (this: HTMLCv1sarakaAmbulanceWlEditorElement, ev: Cv1sarakaAmbulanceWlEditorCustomEvent<HTMLCv1sarakaAmbulanceWlEditorElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLCv1sarakaAmbulanceWlEditorElementEventMap>(type: K, listener: (this: HTMLCv1sarakaAmbulanceWlEditorElement, ev: Cv1sarakaAmbulanceWlEditorCustomEvent<HTMLCv1sarakaAmbulanceWlEditorElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLCv1sarakaAmbulanceWlEditorElement: {
+        prototype: HTMLCv1sarakaAmbulanceWlEditorElement;
+        new (): HTMLCv1sarakaAmbulanceWlEditorElement;
+    };
+    interface HTMLCv1sarakaAmbulanceWlListElementEventMap {
+        "entry-clicked": string;
+    }
     interface HTMLCv1sarakaAmbulanceWlListElement extends Components.Cv1sarakaAmbulanceWlList, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLCv1sarakaAmbulanceWlListElementEventMap>(type: K, listener: (this: HTMLCv1sarakaAmbulanceWlListElement, ev: Cv1sarakaAmbulanceWlListCustomEvent<HTMLCv1sarakaAmbulanceWlListElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLCv1sarakaAmbulanceWlListElementEventMap>(type: K, listener: (this: HTMLCv1sarakaAmbulanceWlListElement, ev: Cv1sarakaAmbulanceWlListCustomEvent<HTMLCv1sarakaAmbulanceWlListElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLCv1sarakaAmbulanceWlListElement: {
         prototype: HTMLCv1sarakaAmbulanceWlListElement;
@@ -37,12 +85,22 @@ declare global {
         new (): HTMLMyComponentElement;
     };
     interface HTMLElementTagNameMap {
+        "cv1saraka-ambulance-wl-app": HTMLCv1sarakaAmbulanceWlAppElement;
+        "cv1saraka-ambulance-wl-editor": HTMLCv1sarakaAmbulanceWlEditorElement;
         "cv1saraka-ambulance-wl-list": HTMLCv1sarakaAmbulanceWlListElement;
         "my-component": HTMLMyComponentElement;
     }
 }
 declare namespace LocalJSX {
+    interface Cv1sarakaAmbulanceWlApp {
+        "basePath"?: string;
+    }
+    interface Cv1sarakaAmbulanceWlEditor {
+        "entryId"?: string;
+        "onEditor-closed"?: (event: Cv1sarakaAmbulanceWlEditorCustomEvent<string>) => void;
+    }
     interface Cv1sarakaAmbulanceWlList {
+        "onEntry-clicked"?: (event: Cv1sarakaAmbulanceWlListCustomEvent<string>) => void;
     }
     interface MyComponent {
         /**
@@ -59,6 +117,8 @@ declare namespace LocalJSX {
         "middle"?: string;
     }
     interface IntrinsicElements {
+        "cv1saraka-ambulance-wl-app": Cv1sarakaAmbulanceWlApp;
+        "cv1saraka-ambulance-wl-editor": Cv1sarakaAmbulanceWlEditor;
         "cv1saraka-ambulance-wl-list": Cv1sarakaAmbulanceWlList;
         "my-component": MyComponent;
     }
@@ -67,6 +127,8 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "cv1saraka-ambulance-wl-app": LocalJSX.Cv1sarakaAmbulanceWlApp & JSXBase.HTMLAttributes<HTMLCv1sarakaAmbulanceWlAppElement>;
+            "cv1saraka-ambulance-wl-editor": LocalJSX.Cv1sarakaAmbulanceWlEditor & JSXBase.HTMLAttributes<HTMLCv1sarakaAmbulanceWlEditorElement>;
             "cv1saraka-ambulance-wl-list": LocalJSX.Cv1sarakaAmbulanceWlList & JSXBase.HTMLAttributes<HTMLCv1sarakaAmbulanceWlListElement>;
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
         }

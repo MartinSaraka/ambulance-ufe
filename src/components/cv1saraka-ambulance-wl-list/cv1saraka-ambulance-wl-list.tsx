@@ -1,10 +1,11 @@
-import { Component, Host, h } from '@stencil/core';
+import { Component, Event, EventEmitter,  Host, h } from '@stencil/core';
 @Component({
   tag: 'cv1saraka-ambulance-wl-list',
   styleUrl: 'cv1saraka-ambulance-wl-list.css',
   shadow: true,
 })
 export class Cv1sarakaAmbulanceWlList {
+  @Event({ eventName: "entry-clicked"}) entryClicked: EventEmitter<string>;
   globalScript: 'src/global/app.ts';
   waitingPatients: any[];
 
@@ -38,8 +39,8 @@ export class Cv1sarakaAmbulanceWlList {
     return (
       <Host>
         <md-list>
-          {this.waitingPatients.map(patient =>
-            <md-list-item>
+        {this.waitingPatients.map((patient, index) =>
+        <md-list-item onClick={ () => this.entryClicked.emit(index.toString())}>
               <div slot="headline">{patient.name}</div>
               <div slot="supporting-text">{"Predpokladaný vstup: " + patient.estimatedStart?.toLocaleString()}</div>
                 <md-icon slot="start">person</md-icon>
