@@ -36,7 +36,7 @@ export class Cv1sarakaAmbulanceWlApp {
     toRelative(location.pathname)
   }
   render() {
-    console.debug("<pfx>-ambulance-wl-app.render() - path: %s", this.relativePath);
+    console.debug("cv1saraka-ambulance-wl-app.render() - path: %s", this.relativePath);
     let element = "list"
     let entryId = "@new"
 
